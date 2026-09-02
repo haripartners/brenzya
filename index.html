@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temukan Sesuatu yang Menarik</title>
+
+  <title>Explore Something New</title>
+
+  <meta name="description" content="Temukan konten menarik dan informasi pilihan yang mungkin sesuai dengan minat kamu.">
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f6f8;
-      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
+        radial-gradient(circle at bottom right, #ede9fe 0, transparent 35%),
+        #f8fafc;
+      color: #172033;
     }
 
-    .container {
+    .page {
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -27,76 +35,213 @@
 
     .card {
       width: 100%;
-      max-width: 420px;
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 32px 24px;
+      max-width: 470px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 28px;
+      padding: 34px 26px 28px;
       text-align: center;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 20px 60px rgba(15,23,42,.12);
+    }
+
+    .visual {
+      width: 100%;
+      height: 190px;
+      border-radius: 22px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, #e0f2fe, #eef2ff 50%, #f5f3ff);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.65);
+      top: -70px;
+      right: -40px;
+    }
+
+    .visual::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.55);
+      bottom: -60px;
+      left: -35px;
     }
 
     .icon {
-      font-size: 52px;
-      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+      font-size: 76px;
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,.12));
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 13px;
+      border-radius: 30px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .7px;
+      margin-bottom: 15px;
     }
 
     h1 {
-      margin: 0 0 14px;
-      font-size: 28px;
-      line-height: 1.2;
+      font-size: 32px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+      letter-spacing: -.7px;
     }
 
-    p {
-      margin: 0 auto 26px;
-      color: #666;
+    .intro {
+      color: #64748b;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
+      margin-bottom: 25px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-bottom: 25px;
+    }
+
+    .feature {
+      background: #f8fafc;
+      border: 1px solid #e8edf3;
+      border-radius: 14px;
+      padding: 13px 5px;
+      font-size: 12px;
+      color: #475569;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
     }
 
     .button {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       width: 100%;
-      padding: 16px;
-      border-radius: 10px;
+      padding: 17px 20px;
+      border-radius: 14px;
       background: #111827;
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-size: 17px;
       font-weight: bold;
+      box-shadow: 0 10px 25px rgba(17,24,39,.18);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .small {
-      margin-top: 18px;
-      font-size: 12px;
-      color: #999;
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(17,24,39,.23);
+    }
+
+    .arrow {
+      font-size: 20px;
+    }
+
+    .note {
+      margin-top: 17px;
+      color: #94a3b8;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 420px) {
+      .card {
+        padding: 26px 19px 23px;
+        border-radius: 23px;
+      }
+
+      .visual {
+        height: 165px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .features {
+        gap: 7px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="card">
+  <main class="page">
 
-      <div class="icon">✨</div>
+    <section class="card">
+
+      <div class="visual">
+        <div class="icon">✨</div>
+      </div>
+
+      <div class="tag">FEATURED CONTENT</div>
 
       <h1>Temukan Sesuatu yang Menarik</h1>
 
-      <p>
-        Jelajahi informasi dan konten pilihan
-        yang mungkin menarik untuk kamu.
+      <p class="intro">
+        Jelajahi informasi, rekomendasi, dan konten pilihan
+        yang mungkin sesuai dengan minat kamu.
       </p>
 
-      <a class="button" href="URL-PERANTARA-DI-SINI">
-        LIHAT SELENGKAPNYA
-      </a>
+      <div class="features">
 
-      <div class="small">
-        Klik tombol untuk melanjutkan.
+        <div class="feature">
+          <strong>✦</strong>
+          Pilihan
+        </div>
+
+        <div class="feature">
+          <strong>⚡</strong>
+          Cepat
+        </div>
+
+        <div class="feature">
+          <strong>→</strong>
+          Jelajahi
+        </div>
+
       </div>
 
-    </div>
-  </div>
+      <a
+        class="button"
+        href="https://app.shortit.click/4da604"
+      >
+        LIHAT SELENGKAPNYA
+        <span class="arrow">→</span>
+      </a>
+
+      <div class="note">
+        Klik tombol di atas untuk melanjutkan.
+      </div>
+
+    </section>
+
+  </main>
 
 </body>
 </html>
